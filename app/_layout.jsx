@@ -1,11 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Slot, Stack } from 'expo-router'
 
 const RootLayout = () => {
   return (
-    <View>
-      <Text>RootLayout</Text>
-    </View>
+
+        <Stack screenOptions={{
+            headerStyle:{ backgroundColor:"#ddd"},
+            headerTintColor: '#333'
+        }}>
+            <Stack.Screen name="index" options={{title:'Home'}}/>
+            <Stack.Screen name="screens/About" options={{title:"About Page"}}/>
+            <Stack.Screen name="screens/Contact" options={{title:"Contact Page",headerShown:false}}/>
+        </Stack>
+
   )
 }
 
