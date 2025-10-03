@@ -1,51 +1,53 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Cat from '../assets/cat.jpeg'
-import { Link } from 'expo-router'
+import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
+import ThemedView from "../components/ThemedView";
+import ThemedLogo from "../components/ThemedLogo";
+import Spacer from "../components/Spacer";
+import ThemedText from "../components/ThemedText";
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-        <Image source={Cat} style={styles.img}/>
-      <Text style={styles.title}>The Number 1</Text>
-      <Text>Reading List App</Text>
+    <ThemedView style={styles.container}>
+      <ThemedLogo style={styles.img} />
+      <Spacer height={20} />
+      <ThemedText style={styles.title} titl={true}>
+        The Number 1
+      </ThemedText>
+      <Spacer height={10} />
+      <ThemedText>Reading List App</ThemedText>
 
-      <View style={styles.card}>
-        <Text>Hello this is a card.</Text>
-      </View>
+      <Spacer />
+      <Link href="/screens/About" style={styles.link}>
+        <ThemedText>About Page</ThemedText>
+      </Link>
+      <Link href="/screens/Contact" style={styles.link}>
+        <ThemedText>Contact Page</ThemedText>
+      </Link>
+    </ThemedView>
+  );
+};
 
-      <Link href='/screens/About' style={styles.link}>About Page</Link>
-      <Link href='/screens/Contact' style={styles.link}>Contact Page</Link>
-    </View>
-  )
-}
-
-export default Home
+export default Home;
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignItems:"center",
-        justifyContent:"center",
-    },
-    title:{
-        fontWeight:'bold',
-        fontSize:18,
-    },
-    card:{
-        backgroundColor:'#eee',
-        padding:2,
-        borderRadius:5,
-        boxShadow:`4px 4px ragba(0,0,0,0.1`
-    },
-    img:{
-        marginVertical:20,
-        height:300,
-        width:300,
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  card: {
+    backgroundColor: "#eee",
+    padding: 2,
+    borderRadius: 5,
+    boxShadow: `4px 4px ragba(0,0,0,0.1`,
+  },
 
-    },
-    link:{
-        marginVertical:10,
-        borderBottomWidth:1
-    }
-})
+  link: {
+    marginVertical: 10,
+    borderBottomWidth: 1,
+  },
+});

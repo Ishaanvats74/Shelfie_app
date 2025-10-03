@@ -1,30 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Link } from 'expo-router'
+import { StyleSheet, Text, useColorScheme, View } from "react-native";
+import { Link } from "expo-router";
+import { Colors } from "../../constants/Colors";
+import ThemedView from "../../components/ThemedView";
+import ThemedText from "../../components/ThemedText";
 
 const About = () => {
+  const colorScheme = useColorScheme();
+  const theme = Colors[colorScheme] ?? Colors.light;
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>About</Text>
-      <Link href='/' style={styles.link}>Back home</Link>
-    </View>
-  )
-}
+    <ThemedView
+      style={[styles.container, { backgroundColor: theme.background }]}
+    >
+      <ThemedText style={styles.title}>About</ThemedText>
+      <Link href="/" style={styles.link}>
+        <ThemedText>Back home</ThemedText>
+      </Link>
+    </ThemedView>
+  );
+};
 
-export default About
+export default About;
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignItems:"center",
-        justifyContent:"center",
-    },
-    title:{
-        fontWeight:'bold',
-        fontSize:18,
-    },
-    link:{
-        marginVertical:10,
-        borderBottomWidth:1
-    }
-})
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  link: {
+    marginVertical: 10,
+    borderBottomWidth: 1,
+  },
+});
