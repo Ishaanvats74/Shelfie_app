@@ -1,4 +1,4 @@
-import {   useColorScheme } from "react-native";
+import { useColorScheme } from "react-native";
 import { Stack } from "expo-router";
 import { Colors } from "../constants/Colors";
 import { StatusBar } from "expo-status-bar";
